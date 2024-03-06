@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset='utf-8'>
+ <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+ <title>Pessoas</title>
+ <meta name='viewport' content='width=device-width, initial-scale=1'>
+ <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+ <div id="app">
+  {{totalPessoas}} Pessoa(s) cadastrada(s)
+  <fieldset>
+   <legend>Cadastro</legend>
+   <p>Nome: <input type="text" v-model="pessoa.nome" /></p>
+   <p>CPF: <input type="text" v-model="pessoa.cpf" /></p>
+   <p><button @click="addPessoa">Salvar</button></p>
+  </fieldset>
+ </div>
+ <script>
+
+  const vapp = Vue.createApp({
+   data() {
+    return {
+     totalPessoas: 0,
+     pessoa: {
+      nome: '',
+      cpf: ''
+     }
+    };
+   },
+   mounted() {
+    this.getPessoas();
+   },
+   methods: {
+    async addPessoa() {
+
+     let r = await fetch(`http://localhost:8080/demonitrite/api/pessoa`, {
+      method: 'POST',
+      headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.pessoa)
+     });
+     let j = await r.json();
+     if (j.erro) {
+      console.log(`Erro: ${j.erro}`);
+     } else {
+      this.totalPessoas = j.length;
+     }
+    },
+    async getPessoas() {
+     let r = await fetch(`http://localhost:8080/demonitrite/api/pessoa`, {
+      method: 'GET'
+     });
+     let j = await r.json();
+     this.totalPessoas = j.length;
+    }
+   },
+  });
+  vapp.mount("#app");
+
+
+  //callback hell
+  /*fetch(`http://localhost:8080/demonitrite/api/pessoa`, {
+   method: 'GET'
+  }).then((r) => {
+   console.log(r);
+   return r.json();
+  }).then((j) => {
+   console.log(j);
+  });*/
+
+
+ </script>
+</body>
+
+</html>

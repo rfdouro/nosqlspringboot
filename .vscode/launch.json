@@ -1,0 +1,44 @@
+{
+ "configurations": [
+  {
+   "type": "java",
+   "name": "Spring Boot-Demo01n4jApplication<demo01n4j>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "br.org.rfdouro.demo01n4j.Demo01n4jApplication",
+   "projectName": "demo01n4j",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-DemomongoApplication<demomongo>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "br.org.rfdouro.demomongo.DemomongoApplication",
+   "projectName": "demomongo",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-ExnitriteApplication<exnitrite>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "br.org.testes.exnitrite.ExnitriteApplication",
+   "projectName": "exnitrite",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-Main<exnitrite>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "br.org.rfdouro.Main",
+   "projectName": "exnitrite",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
+  }
+ ]
+}
