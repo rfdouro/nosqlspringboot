@@ -39,6 +39,16 @@
    "projectName": "exnitrite",
    "args": "",
    "envFile": "${workspaceFolder}/.env"
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-Demo1Application<demo1>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "br.unisales.n4j.demo1.Demo1Application",
+   "projectName": "demo1",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
   }
  ]
 }
