@@ -13,8 +13,11 @@ public interface FilmeRepository extends Neo4jRepository<Filme, String> {
 
  //https://docs.spring.io/spring-data/neo4j/reference/appendix/custom-queries.html
  
- /*@Query("MATCH (f:Filme) WHERE ElementId(f) = $id RETURN f")
+ /*
+ //uma opção de usar query para neo4j
+ @Query("MATCH (f:Filme) WHERE ElementId(f) = $id RETURN f")
  Filme findOneById(@Param("id") String id);*/
+ //outra opção de usar query para neo4j
  @Query("MATCH (f:Filme) WHERE ElementId(f) = :#{#id} RETURN f")
  Filme findOneById(String id);
 
